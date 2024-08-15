@@ -1,0 +1,24 @@
+/* src/pages/MovieDetail.css */
+.movie-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.movie-detail__poster {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-detail__info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.movie-detail__trailer {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+}
