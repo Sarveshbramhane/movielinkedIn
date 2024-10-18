@@ -12,11 +12,11 @@ import MovieGridRedux from "./components/MovieGridRedux";
 function App() {
   return (
     <Router>
-      <div>
+      <div >
         <Header />
         <ResponsiveDrawer />
         <main
-          style={{ marginLeft: "240px", marginTop: "64px", padding: "20px" }}
+          style={{ marginLeft: "240px", marginTop: "64px", padding: "20px" ,backgroundColor:"#024950"}}
         >
           <Routes>
             <Route path="/" element={<MovieGrid />} /> {/* Default route to MovieGrid */}

@@ -12,6 +12,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import { searchMovies } from "../redux/movieActions";
 
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -55,9 +56,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const LoginButton = styled(Button)(({ theme }) => ({
   color: "white",
-  backgroundColor: "#007BFF", // Blue color
+  backgroundColor: "#003135", // Blue color
   "&:hover": {
-    backgroundColor: "#0056b3", // Darker blue on hover
+    backgroundColor: "#003135", // Darker blue on hover
   },
   marginLeft: theme.spacing(2),
 }));
@@ -81,7 +82,7 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ backgroundColor: "#0033A0" }}> {/* Blue color for AppBar */}
+      <AppBar position="fixed" sx={{ backgroundColor: "#003135" }}> {/* Blue color for AppBar */}
         <Toolbar>
           <Typography
             variant="h6"

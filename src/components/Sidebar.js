@@ -12,6 +12,7 @@ import {
   Divider,
   Box,
   Typography,
+  colors,
 } from "@mui/material";
 import MovieIcon from "@mui/icons-material/Movie";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
@@ -26,7 +27,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import DramaIcon from "@mui/icons-material/TheaterComedy"; // Alternative icon for Drama
 
-const drawerWidth = 255;
+const drawerWidth = 240;
 
 function ResponsiveDrawer() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ function ResponsiveDrawer() {
   };
 
   const drawer = (
-    <div>
+    <div sx={{backgroundColor:"#003135"}}>
       <Toolbar>
         {/* User Profile Section */}
         <Box
@@ -59,21 +60,21 @@ function ResponsiveDrawer() {
           flexDirection="column"
           alignItems="left"
           p={1}
-          bgcolor="#0033A0" // Solid blue background for user profile section
+          bgcolor="#0" // Solid blue background for user profile section
           borderRadius="8px"
         >
           <Avatar
-            sx={{ width: 64, height: 64, mb: 1, border: "2px solid white" }}
+            sx={{ width: 65, height: 64, mb: 1,ml:6, border: "2px solid white" }}
             src="/path-to-profile-pic.jpg"
             alt="User Profile"
           />
           <Typography variant="h6">Sarvesh Bramhane</Typography>
-          <Typography variant="body2" sx={{ color: "#D0D0D0" }}>
+          <Typography variant="body2" sx={{ ml:-3,color:"white" }}>
             sarveshBramhane175@gmail.com
           </Typography>
         </Box>
       </Toolbar>
-      <Divider sx={{ bgcolor: "#D0D0D0" }} />
+      <Divider sx={{ bgcolor: "#024950" }} />
       <List>
         {categories.map((category) => (
           <ListItem key={category.name} disablePadding>
@@ -81,9 +82,9 @@ function ResponsiveDrawer() {
               onClick={() => handleNavigation(category.path, category.name)}
               sx={{
                 backgroundColor:
-                  activeItem === category.name ? "#0044CC" : "transparent", // Darker blue for active item
+                  activeItem === category.name ? "#024950" : "transparent", // Darker blue for active item
                 "&:hover": {
-                  backgroundColor: "#0033A0", // Solid blue on hover
+                  backgroundColor: "#024950", // Solid blue on hover
                 },
                 borderRadius: "4px",
               }}
@@ -101,7 +102,7 @@ function ResponsiveDrawer() {
           </ListItem>
         ))}
       </List>
-      <Divider sx={{ bgcolor: "#D0D0D0", mt: "auto" }} />
+      <Divider sx={{ bgcolor: "#024950", mt: "auto" }} />
       {/* Settings Section */}
       <List>
         <ListItem disablePadding>
@@ -109,7 +110,7 @@ function ResponsiveDrawer() {
             onClick={() => handleNavigation("/settings", "Settings")}
             sx={{
               "&:hover": {
-                backgroundColor: "#0033A0",
+                backgroundColor: "#024950",
               },
             }}
           >
@@ -130,7 +131,7 @@ function ResponsiveDrawer() {
             onClick={() => handleNavigation("/logout", "Logout")}
             sx={{
               "&:hover": {
-                backgroundColor: "#0033A0",
+                backgroundColor: "#024950",
               },
             }}
           >
@@ -158,7 +159,7 @@ function ResponsiveDrawer() {
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: drawerWidth,
-          backgroundColor: "#0033A0", // Solid blue background for sidebar
+          backgroundColor: "#003135", // Solid blue background for sidebar
           color: "white",
         },
       }}

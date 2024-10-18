@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./MovieDetail.css";
+import { FaStar } from "react-icons/fa";  // Import the star icon
 
 const API_KEY = "49a5508b99e54cbf67438655e1565e32";
 const API_BASE_URL = "https://api.themoviedb.org/3";
@@ -39,6 +40,19 @@ const MovieDetail = () => {
     fetchMovieDetail();
   }, [id]);
 
+  const renderStars = (rating) => {
+    const stars = [];
+    const fullStars = Math.floor(rating / 2);  // Movie rating is out of 10, convert it to 5-star system
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStars) {
+        stars.push(<FaStar key={i} className="star full" />);
+      } else {
+        stars.push(<FaStar key={i} className="star empty" />);
+      }
+    }
+    return stars;
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
@@ -56,7 +70,12 @@ const MovieDetail = () => {
             <p><strong>Release Date:</strong> {movie.release_date}</p>
             <p><strong>Overview:</strong> {movie.overview}</p>
             <p><strong>Genres:</strong> {movie.genres.map((genre) => genre.name).join(", ")}</p>
-            <p><strong>Rating:</strong> {movie.vote_average}</p>
+            <p>
+              <strong>Rating:</strong>
+              <span className="movie-detail__rating">
+                {renderStars(movie.vote_average)} {movie.vote_average}
+              </span>
+            </p>
           </div>
         </>
       )}
